@@ -130,12 +130,9 @@ $username = $_SESSION['username'];
             ?>
 
 
-
-
             <?php
 
                 $line = explode(", ", $api->returnCourseHandler()->returnPreviousCompletedCourse($username));
-
 
                 if (in_array("C1", $line)) {
                     echo "
@@ -147,16 +144,22 @@ $username = $_SESSION['username'];
                                 <div class='card-body'>
                                     <p class='card-text'>You finished this course!</p>
                                 </div>
+                                <div class='card-footer'>
+                                    <button class='btn btn-primary' disabled> Completed </button>
+                                </div>
                             </div>
                         </div>
 
                         <div class='col-md-4'>
                             <div class='card'>
                                 <div class='card-header'>
-                                    <strong class='card-title'>Course 2 <small><span class='badge badge-danger float-right mt-1'>Oops</span></small></strong>
+                                    <strong class='card-title'>Course 2 <small><span class='badge badge-danger float-right mt-1'>Pending</span></small></strong>
                                 </div>
                                 <div class='card-body'>
                                     <p class='card-text'>You have not completed this course!</p>
+                                </div>
+                                <div class='card-footer'>
+                                    <a href='page/course2.php' class='btn btn-primary'> Enroll </a>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +172,10 @@ $username = $_SESSION['username'];
                                     <strong class='card-title'>Course 1 <small><span class='badge badge-success float-right mt-1'>Success</span></small></strong>
                                 </div>
                                 <div class='card-body'>
-                                    <p class='card-text'>You finished this course!</p>
+                                    <p class='card-text'>You have completed this course!</p>
+                                </div>
+                                <div class='card-footer'>
+                                    <button class='btn btn-primary' disabled> Completed </button>
                                 </div>
                             </div>
                         </div>
@@ -181,6 +187,9 @@ $username = $_SESSION['username'];
                                 </div>
                                 <div class='card-body'>
                                     <p class='card-text'>You have completed this course!</p>
+                                </div>
+                                <div class='card-footer'>
+                                    <button class='btn btn-primary' disabled> Completed </button>
                                 </div>
                             </div>
                         </div>
@@ -193,6 +202,10 @@ $username = $_SESSION['username'];
                                 <div class='card-body'>
                                     <p class='card-text'>You have not completed this course!</p>
                                 </div>
+                                <div class='card-footer'>
+                                    <a href='page/course3.php' class='btn btn-primary'> Enroll </a>
+                                </div>
+
                             </div>
                         </div>
 
@@ -205,7 +218,10 @@ $username = $_SESSION['username'];
                                     <strong class='card-title'>Course 1 <small><span class='badge badge-success float-right mt-1'>Success</span></small></strong>
                                 </div>
                                 <div class='card-body'>
-                                    <p class='card-text'>You have not completed this course!</p>
+                                    <p class='card-text'>You have completed this course!</p>
+                                </div>
+                                <div class='card-footer'>
+                                    <button class='btn btn-primary' disabled> Completed </button>
                                 </div>
                             </div>
                         </div>
@@ -218,6 +234,9 @@ $username = $_SESSION['username'];
                                 <div class='card-body'>
                                     <p class='card-text'>You have completed this course!</p>
                                 </div>
+                                <div class='card-footer'>
+                                    <button class='btn btn-primary' disabled> Completed </button>
+                                </div>
                             </div>
                         </div>
 
@@ -228,6 +247,9 @@ $username = $_SESSION['username'];
                                 </div>
                                 <div class='card-body'>
                                     <p class='card-text'>You have completed this course!</p>
+                                </div>
+                                <div class='card-footer'>
+                                    <button class='btn btn-primary' disabled> Completed </button>
                                 </div>
                             </div>
                         </div>
@@ -243,6 +265,10 @@ $username = $_SESSION['username'];
                                 <div class='card-body'>
                                     <p class='card-text'>You have not completed this course!</p>
                                 </div>
+                                <div class='card-footer'>
+                                    <a href='page/course1.php' class='btn btn-primary'> Enroll </a>
+                                </div>
+
                             </div>
                         </div>
                     ";                    
@@ -250,40 +276,6 @@ $username = $_SESSION['username'];
             ?>
 
         </div> <!-- .content -->
-
-        <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="smallmodalLabel">Course Detail</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            Benefits: Learn how to be a professional Programmer
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Enroll</button>
-                        <button type="button" data-dismiss="modal" class="btn btn-primary">Not Interested</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-        
 
 
     </div><!-- /#right-panel -->

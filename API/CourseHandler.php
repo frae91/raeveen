@@ -83,10 +83,10 @@ class CourseHandler {
 		}		
 	}
 
-	public function setAsFinished($username, $courseID, $marks) {
+	public function setAsFinished($username, $courseID) {
 		$courseName = $this->returnCourseName($courseID);
 		if ($this->usernameExist($username) !== true) {
-			$sql = "INSERT INTO $this->courseTable(username, course, marks, enrolledOn) VALUES (?, ?, ?, ?)";
+			$sql = "INSERT INTO $this->courseTable(username, course, enrolledOn) VALUES (?, ?, ?)";
 			$stmt = mysqli_stmt_init($this->storedSQL);
 
 			$date = date("d/m/y");
@@ -94,7 +94,7 @@ class CourseHandler {
 			if (!mysqli_stmt_prepare($stmt, $sql)) {
 				echo "Preparation Failed! : Course setAsFinished";
 			} else {
-				mysqli_stmt_bind_param($stmt, "ssss", $username, $courseName, $marks, $date);
+				mysqli_stmt_bind_param($stmt, "sss", $username, $courseName, $date);
 				$result = mysqli_stmt_execute($stmt);
 
 				if ($result) {

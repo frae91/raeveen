@@ -13,7 +13,7 @@ if (!isset($_POST['total']) || !isset($_POST['correct']) || !isset($_POST['usern
 	$course = $_POST['course'];
 	$percentage = ($correct / $total) * 100;
 	if ($percentage >= 50) {
-		$api->returnCourseHandler()->setAsFinished($username, $course, $percentage);
+		$api->returnCourseHandler()->setAsFinished($username, $course);
 	} else {
 		header("Location: ../index.php/?message=failed");
 	}
