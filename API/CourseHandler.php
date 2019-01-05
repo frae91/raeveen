@@ -16,9 +16,9 @@ class CourseHandler {
 
 	## Course Name
 	public $courseMeta = array(
-		1 => "C1",
-		2 => "C2",
-		3 => "C3"
+		1 => "1",
+		2 => "2",
+		3 => "3"
 	);
 
 	public function __construct($host, $username, $password, $database) {
@@ -76,6 +76,7 @@ class CourseHandler {
 			mysqli_stmt_bind_param($stmt, "s", $username);
 			mysqli_stmt_execute($stmt);
 			$store = mysqli_stmt_get_result($stmt);
+			$row = mysqli_num_rows($store);
 
 			if ($row = mysqli_fetch_assoc($store)) {
 				return $row['course'];

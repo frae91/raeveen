@@ -161,7 +161,7 @@
     var cName = $('#identifier').val();
 
     $.post("../../driver/CourseFinishDriver.php", { course: cName, correct: numCorrect, total: length, username: uName}, function(result){
-        alert("Data: " + cName + "\nStatus: " + result);
+       //alert("Data: " + cName + "\nStatus: " + result); 
     });
 
     return score;

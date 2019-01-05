@@ -131,85 +131,152 @@ $username = $_SESSION['username'];
 
             <?php
 
-                $line = explode(", ", $api->returnCourseHandler()->returnPreviousCompletedCourse($username));
+                $result = $api->returnCourseHandler()->returnPreviousCompletedCourse($username);
+                $line = explode(", ", $result);
+                $max = max($line);
 
-                if (in_array("C1", $line)) {
-                    echo "
-                        <div class='col-md-4'>
-                            <div class='card'>
-                                <div class='card-header'>
-                                    <strong class='card-title'>Course 1 <small><span class='badge badge-success float-right mt-1'>Success</span></small></strong>
-                                </div>
-                                <div class='card-body'>
-                                    <p class='card-text'>You finished this course!</p>
-                                </div>
-                                <div class='card-footer'>
-                                    <button class='btn btn-primary' disabled> Completed </button>
+                switch ($max) {
+                    case "1":
+                        echo "
+                            <div class='col-md-4'>
+                                <div class='card'>
+                                    <div class='card-header'>
+                                        <strong class='card-title'>Course 1 <small><span class='badge badge-success float-right mt-1'>Success</span></small></strong>
+                                    </div>
+                                    <div class='card-body'>
+                                        <p class='card-text'>You finished this course!</p>
+                                    </div>
+                                    <div class='card-footer'>
+                                        <button class='btn btn-primary' disabled> Completed </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class='col-md-4'>
-                            <div class='card'>
-                                <div class='card-header'>
-                                    <strong class='card-title'>Course 2 <small><span class='badge badge-danger float-right mt-1'>Pending</span></small></strong>
-                                </div>
-                                <div class='card-body'>
-                                    <p class='card-text'>You have not completed this course!</p>
-                                </div>
-                                <div class='card-footer'>
-                                    <a href='page/course2.php' class='btn btn-primary'> Enroll </a>
-                                </div>
-                            </div>
-                        </div>
-                    ";
-                } else if (in_array("C2", $line)) {
-                    echo "
-                        <div class='col-md-4'>
-                            <div class='card'>
-                                <div class='card-header'>
-                                    <strong class='card-title'>Course 1 <small><span class='badge badge-success float-right mt-1'>Success</span></small></strong>
-                                </div>
-                                <div class='card-body'>
-                                    <p class='card-text'>You have completed this course!</p>
-                                </div>
-                                <div class='card-footer'>
-                                    <button class='btn btn-primary' disabled> Completed </button>
+                            <div class='col-md-4'>
+                                <div class='card'>
+                                    <div class='card-header'>
+                                        <strong class='card-title'>Course 2 <small><span class='badge badge-danger float-right mt-1'>Pending</span></small></strong>
+                                    </div>
+                                    <div class='card-body'>
+                                        <p class='card-text'>You have not completed this course!</p>
+                                    </div>
+                                    <div class='card-footer'>
+                                        <a href='page/course2.php' class='btn btn-primary'> Enroll </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        ";                    
+                    break;
 
-                        <div class='col-md-4'>
-                            <div class='card'>
-                                <div class='card-header'>
-                                    <strong class='card-title'>Course 2 <small><span class='badge badge-success float-right mt-1'>Success</span></small></strong>
-                                </div>
-                                <div class='card-body'>
-                                    <p class='card-text'>You have completed this course!</p>
-                                </div>
-                                <div class='card-footer'>
-                                    <button class='btn btn-primary' disabled> Completed </button>
+                    case "2":
+                        echo "
+                            <div class='col-md-4'>
+                                <div class='card'>
+                                    <div class='card-header'>
+                                        <strong class='card-title'>Course 1 <small><span class='badge badge-success float-right mt-1'>Success</span></small></strong>
+                                    </div>
+                                    <div class='card-body'>
+                                        <p class='card-text'>You finished this course!</p>
+                                    </div>
+                                    <div class='card-footer'>
+                                        <button class='btn btn-primary' disabled> Completed </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class='col-md-4'>
-                            <div class='card'>
-                                <div class='card-header'>
-                                    <strong class='card-title'>Course 3 <small><span class='badge badge-danger float-right mt-1'>Oops</span></small></strong>
+                            <div class='col-md-4'>
+                                <div class='card'>
+                                    <div class='card-header'>
+                                        <strong class='card-title'>Course 2 <small><span class='badge badge-success float-right mt-1'>Success</span></small></strong>
+                                    </div>
+                                    <div class='card-body'>
+                                        <p class='card-text'>You finished this course!</p>
+                                    </div>
+                                    <div class='card-footer'>
+                                        <button class='btn btn-primary' disabled> Completed </button>
+                                    </div>
                                 </div>
-                                <div class='card-body'>
-                                    <p class='card-text'>You have not completed this course!</p>
-                                </div>
-                                <div class='card-footer'>
-                                    <a href='page/course3.php' class='btn btn-primary'> Enroll </a>
-                                </div>
-
                             </div>
-                        </div>
+                            <div class='col-md-4'>
+                                <div class='card'>
+                                    <div class='card-header'>
+                                        <strong class='card-title'>Course 3 <small><span class='badge badge-danger float-right mt-1'>Pending</span></small></strong>
+                                    </div>
+                                    <div class='card-body'>
+                                        <p class='card-text'>You have not completed this course!</p>
+                                    </div>
+                                    <div class='card-footer'>
+                                        <a href='page/course3.php' class='btn btn-primary'> Enroll </a>
+                                    </div>
+                                </div>
+                            </div>
+                        ";  
+                    break;
 
-                    ";
+                    case "3":
+                        echo "
+                            <div class='col-md-4'>
+                                <div class='card'>
+                                    <div class='card-header'>
+                                        <strong class='card-title'>Course 1 <small><span class='badge badge-success float-right mt-1'>Success</span></small></strong>
+                                    </div>
+                                    <div class='card-body'>
+                                        <p class='card-text'>You finished this course!</p>
+                                    </div>
+                                    <div class='card-footer'>
+                                        <button class='btn btn-primary' disabled> Completed </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class='card'>
+                                    <div class='card-header'>
+                                        <strong class='card-title'>Course 2 <small><span class='badge badge-success float-right mt-1'>Success</span></small></strong>
+                                    </div>
+                                    <div class='card-body'>
+                                        <p class='card-text'>You finished this course!</p>
+                                    </div>
+                                    <div class='card-footer'>
+                                        <button class='btn btn-primary' disabled> Completed </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-md-4'>
+                                <div class='card'>
+                                    <div class='card-header'>
+                                        <strong class='card-title'>Course 3 <small><span class='badge badge-success float-right mt-1'>Success</span></small></strong>
+                                    </div>
+                                    <div class='card-body'>
+                                        <p class='card-text'>You finished this course!</p>
+                                    </div>
+                                    <div class='card-footer'>
+                                        <button class='btn btn-primary' disabled> Completed </button>
+                                    </div>
+                                </div>
+                            </div>
+                        ";  
+                    break;
+
+
+                    default:
+                        echo "
+                            <div class='col-md-4'>
+                                <div class='card'>
+                                    <div class='card-header'>
+                                        <strong class='card-title'>Course 1 <small><span class='badge badge-danger float-right mt-1'>Pending</span></small></strong>
+                                    </div>
+                                    <div class='card-body'>
+                                        <p class='card-text'>You have not completed this course!</p>
+                                    </div>
+                                    <div class='card-footer'>
+                                        <a href='page/course1.php' class='btn btn-primary'> Enroll </a>
+                                    </div>
+                                </div>
+                            </div>
+                        ";
+                    break;
                 }
+
+
+
             ?>
 
         </div> <!-- .content -->
