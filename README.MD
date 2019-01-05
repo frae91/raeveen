@@ -5,4 +5,8 @@
 - OR if you wanna try my configuration, you can try importing `/API/database/quiz.sql`
 - That's probably all! Woila. :D
 
+# Default Username/Password (Only if you loaded my Database Configuration)
+Username: admin
+Password: database
+
 ## NOTE: This project is for 'CodeForAsia'. Any unathorised distribution of this project could lead to a DMCA Takedown.  
