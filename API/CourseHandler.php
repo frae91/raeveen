@@ -76,7 +76,6 @@ class CourseHandler {
 			mysqli_stmt_bind_param($stmt, "s", $username);
 			mysqli_stmt_execute($stmt);
 			$store = mysqli_stmt_get_result($stmt);
-			$row = mysqli_num_rows($store);
 
 			if ($row = mysqli_fetch_assoc($store)) {
 				return $row['course'];
